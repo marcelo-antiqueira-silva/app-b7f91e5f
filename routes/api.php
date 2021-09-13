@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::post('/produtos', 'ProdutosController@createProduto');
+Route::post('/movimentacao-produtos', 'MovimentacaoProdutosController@createMovimentacaoProduto');
+Route::get('/historico-movimentacao-produtos', 'MovimentacaoProdutosController@listMovimentacaoProduto');

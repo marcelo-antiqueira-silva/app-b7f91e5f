@@ -45,7 +45,33 @@ class MovimentacaoProdutosController extends Controller
         
     }
 
-    public function listHistoricoMovimentacaoProdutos(){
+    public function listMovimentacaoProduto(){
 
+        try {
+            
+           
+            $result = MovimentacaoProdutos::select('sku', 'quantidade', 'created_at as data_registro')
+                        ->orderBy('created_at', 'desc')
+                        ->get();                
+
+            return response()->json([
+                $result->all()
+            ], 201);
+            
+
+
+
+        } catch (\Throwable $th) {
+            
+            return response()->json([
+                "message" => "Não foi possível cadastrar a movimentação do produto!Tente novamente.",
+                "details" => $th->getMessage()
+            ],400, [], JSON_UNESCAPED_UNICODE);
+
+        } 
+        
     }
+
+
+
 }

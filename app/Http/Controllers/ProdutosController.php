@@ -10,8 +10,6 @@ class ProdutosController extends Controller
 {
     public function createProduto(Request $request){
 
-    
-
         try {
          
             $validacao = Validator::make($request->all(), [
